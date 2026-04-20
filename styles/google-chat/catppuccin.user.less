@@ -1,0 +1,253 @@
+/* ==UserStyle==
+@name Google Chat Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/google-chat
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/google-chat
+@version 2026.04.20
+@updateURL https://github.com/catppuccin/userstyles/raw/main/styles/google-chat/catppuccin.user.less
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Agoogle-chat
+@description Soothing pastel theme for Google Chat
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+
+@import "https://userstyles.catppuccin.com/lib/lib.less";
+
+@-moz-document domain("chat.google.com"),
+  regexp("https://mail\\.google\\.com/chat/.*") {
+  body:not([data-theme="dark"]) {
+    #catppuccin(@lightFlavor);
+  }
+
+  body[data-theme="dark"] {
+    #catppuccin(@darkFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+
+    --gm3-color-surface: @base;
+    --gm3-color-surface-rgb: #lib.rgbify(@base)[];
+    --gm3-color-surface-bright: @surface0;
+    --gm3-color-surface-dim: @crust;
+    --gm3-color-surface-container-lowest: @crust;
+    --gm3-color-surface-container-low: @mantle;
+    --gm3-color-surface-container: @surface0;
+    --gm3-color-surface-container-high: @surface1;
+    --gm3-color-surface-container-highest: @surface2;
+    --gm3-color-surface-variant: @surface0;
+    --gm3-color-surface-tint: @accent;
+
+    --gm3-color-on-surface: @text;
+    --gm3-color-on-surface-variant: @subtext0;
+    --gm3-color-inverse-surface: @text;
+    --gm3-color-inverse-on-surface: @base;
+
+    --gm3-color-primary: @accent;
+    --gm3-color-on-primary: @base;
+    --gm3-color-primary-container: @surface0;
+    --gm3-color-on-primary-container: @text;
+
+    --gm3-color-secondary: @accent;
+    --gm3-color-on-secondary: @base;
+    --gm3-color-secondary-container: @surface0;
+    --gm3-color-on-secondary-container: @text;
+
+    --gm3-color-tertiary: @green;
+    --gm3-color-on-tertiary: @base;
+    --gm3-color-tertiary-container: @surface0;
+    --gm3-color-on-tertiary-container: @text;
+
+    --gm3-color-outline: @overlay0;
+    --gm3-color-outline-variant: @surface2;
+    --gm3-color-scrim: @crust;
+
+    --gm3-color-error: @red;
+    --gm3-color-on-error: @base;
+    --gm3-color-error-container: @surface0;
+    --gm3-color-on-error-container: @red;
+
+    /* Top-level app shell / workspace background */
+    .pGxpHc {
+      background-color: @mantle;
+    }
+
+    /* Main chat content shell (behind the conversation list + right panel) */
+    #dynamite-main-content,
+    .lYh0Nb {
+      background-color: @mantle;
+    }
+
+    /* Left navigation sidebar (Home / Mentions / Starred / spaces) */
+    .BCL84c.Uexccd.qa7SYc {
+      background-color: @mantle;
+    }
+
+    /* Conversation list column */
+    .AF0zs {
+      background-color: @base;
+    }
+
+    /* Google top-bar search form */
+    .gb_Hd,
+    form#aso_search_form_anchor {
+      background-color: @surface0;
+      background-image: none;
+
+      &:focus-within,
+      &:hover {
+        background-color: @surface1;
+      }
+    }
+
+    /* Google top-bar status chip (e.g. "Active") */
+    .lJradf.IxFhv {
+      background-color: @surface0;
+      background-image: none;
+
+      &:hover {
+        background-color: @surface1;
+      }
+    }
+
+    /* Google top-bar profile pill */
+    .gb_5a {
+      background-color: @surface0;
+      color: @text;
+    }
+
+    /* Slide-out Google account / app menu */
+    .gb_ad {
+      background-color: @mantle;
+      color: @text;
+    }
+
+    /* Small status dots / initial avatar bubbles in top bar */
+    .SwwApf,
+    .tzwwSb {
+      background-color: @surface1;
+    }
+
+    /* Lens / clear-search icon chip inside the search bar */
+    .hNbco {
+      background-color: @surface1;
+    }
+
+    /* Message bubble (individual message) */
+    .EAOoq.LrGp7b {
+      background-color: @surface0;
+      color: @text;
+    }
+
+    /* @mention chip inside message */
+    .uuB9Nd.sKzzbd,
+    .uuB9Nd.sKzzbd.a21Vic {
+      background-color: @accent;
+      color: @base;
+    }
+
+    .XKUUFc .BZp0q {
+      background-color: @base;
+    }
+
+    .uuB9Nd .kqu4n {
+      fill: @surface0;
+    }
+
+    .uuB9Nd .MsqITd {
+      color: @surface0;
+    }
+
+    /* Video meeting / link preview card */
+    .Pj9rof,
+    .OHXXjd.bBukm {
+      background-color: @surface1;
+      color: @text;
+    }
+
+    /* Hairlines & dividers */
+    --hairline-color: @surface0;
+    --chip-hairline-color: @surface1;
+    --option-border-color: @surface1;
+    --dialog-hairline-line-color: @surface1;
+    --suggestions-border-color: @surface0;
+    --elevation-border-color: @surface0;
+    --read-receipt-overflow-border-color: @base;
+
+    /* Popover / flyout / bottom bar surfaces */
+    --frameless-flyout-bg-color: @mantle;
+    --bottombar-bg-color: @mantle;
+    --settings-bg-color: @surface0;
+    --info-banner-background: @mantle;
+    --info-banner-text-color: @text;
+    --info-banner-border-background: @surface1;
+    --conversation-header-mole-background: @surface0;
+
+    /* Messages */
+    --message-background-color: @surface0;
+    --message-accented-bg-color: @surface1;
+    --message-author-background-color: @surface0;
+    --message-monospace-text-color: @text;
+    --message-quote-block-icon-color: @subtext0;
+    --quoted-message-text-color: @subtext0;
+    --streammole-container-threading-panel-bubble-background-color: @surface0;
+    --side-panel-tombstone-message-bg-color: @surface0;
+    --files-media-bg-color: @surface0;
+    --top-bar-header-border-color: @surface0;
+    --postbar-monospace-inline-background-color: @mantle;
+    --postbar-monospace-block-background-color: @mantle;
+    --postbar-restricted-text-color: @overlay1;
+    --postbar-selected-icon-color: @accent;
+    --postbar-compact-expand-icon-bg-color: @base;
+    --postbar-blocker-primary-button-color: @accent;
+
+    /* Side nav / world section */
+    --world-section-hover-bg-color: @surface0;
+    --world-section-hub-new-chat-button-bg-color: @accent;
+    --world-section-hub-new-chat-button-peek-view-focus-bg-color: @surface0;
+
+    /* Buttons / toggles / pills */
+    --button-filled-pressed-bg-color: fade(@accent, 80%);
+    --button-text-focus-bg-color: fade(@accent, 12%);
+    --toggle-icon-color: @accent;
+    --toggle-disabled-icon-color: @overlay0;
+    --icon-alternate-background-color: fade(@accent, 24%);
+    --bot-pill-bg-color: fade(@overlay0, 20%);
+    --pill-tag-bg-color: @mantle;
+    --selected-slash-command-bot-name-bg-color: @surface0;
+    --fab-tonal-enabled-bg-color: @base;
+    --roomatar-bg-color: @mantle;
+    --avatar-picker-bg-color: @surface0;
+    --suggestions-row-bg-color: fade(@text, 8%);
+    --calendar-prev-bg-color: fade(@text, 8%);
+    --timeline-section-badge-bg-color: @accent;
+
+    /* Disabled / muted text */
+    --disabled-text-color-alt: fade(@subtext0, 38%);
+    --assisted-writing-text-color: @overlay0;
+    --space-settings-disabled-text-color: @overlay0;
+    --schedule-icon-color: @text;
+    --elbow-icon-color: @surface1;
+
+    /* Scrollbar */
+    --scrollbar-thumb-hover-color: @overlay0;
+
+    ::selection {
+      background-color: fade(@accent, 30%);
+      color: @text;
+    }
+
+    input,
+    textarea {
+      caret-color: @text;
+
+      &::placeholder {
+        color: @subtext0;
+      }
+    }
+  }
+}
